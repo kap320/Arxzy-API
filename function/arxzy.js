@@ -1,9 +1,3 @@
-/*
-    Created By ArxzyDev
-    My Contact wa.me/6289513081052
-    Forget For Donate
-*/
-
 const jsobfus = require('javascript-obfuscator')
 const axios = require('axios')
 const cheerio = require('cheerio')
@@ -112,7 +106,7 @@ const FormData = require('form-data')
             })
         }
         function apkDl(url) {
-            let res = await fetch("https://apk.support/gapi/index.php", {
+            let res = fetch("https://apk.support/gapi/index.php", {
                 method: "post",
                 body: new URLSearchParams(
                     Object.entries({
@@ -134,14 +128,14 @@ const FormData = require('form-data')
                     })
                 ),
             });
-            let $ = cheerio.load(await res.text());
+            let $ = cheerio.load(res.text());
             let fileName = $("div.browser > div.dvContents > ul > li > a")
             .text()
             .trim()
             .split(" ")[0];
             let download = $("div.browser > div.dvContents > ul > li > a").attr("href");
             if (!download) throw "Can't download the apk!";
-            let mimetype = (await fetch(download, { method: "head" })).headers.get(
+            let mimetype = fetch(download, { method: "head" }).headers.get(
                 "content-type"
             );
             return { fileName, mimetype, download };
@@ -176,7 +170,7 @@ const FormData = require('form-data')
             })
         }
         function capcut() {
-            var $ = await cheerio.load(await (await axios(arguments[0])).data);
+            var $ = cheerio.load((axios(arguments[0])).data);
             return {
                 nama: $("img").attr("alt"),
                 used: $("b").text().replace($("img").attr("alt"), ""),
@@ -185,7 +179,7 @@ const FormData = require('form-data')
             };
         }
         function mediafireDl(url) {
-            const res = await axios.get(url) 
+            const res = axios.get(url) 
             const $ = cheerio.load(res.data)
             const hasil = []
             const link = $('a#downloadButton').attr('href')
@@ -351,7 +345,7 @@ const FormData = require('form-data')
                     }
                 ]
             };
-            const res = await axios.post('https://bot.lyo.su/quote/generate', json, {
+            const res = axios.post('https://bot.lyo.su/quote/generate', json, {
                 headers: {'Content-Type': 'application/json'}
             })
             const buffer = Buffer.from(res.data.result.image, 'base64')
@@ -374,7 +368,7 @@ const FormData = require('form-data')
                 return out.join("&");
             })
             .join("&");
-            return await fetch(`${url}?${body}`, {
+            return fetch(`${url}?${body}`, {
                 method: "GET",
                 headers: {
                     Accept: "*/*",
@@ -387,13 +381,13 @@ const FormData = require('form-data')
         function textpro(url, text) {
             if (!/^https:\/\/textpro\.me\/.+\.html$/.test(url))
             throw new Error("Url Salah!!");
-            const geturl = await fetch(url, {
+            const geturl = fetch(url, {
                 method: "GET",
                 headers: {
                     "User-Agent": "GoogleBot",
                 },
             });
-            const caritoken = await geturl.text();
+            const caritoken = geturl.text();
             let hasilcookie = geturl.headers
             .get("set-cookie")
             .split(",")
@@ -417,7 +411,7 @@ const FormData = require('form-data')
             form.append("token", token);
             form.append("build_server", "https://textpro.me");
             form.append("build_server_id", 1);
-            const geturl2 = await fetch(url, {
+            const geturl2 = fetch(url, {
                 method: "POST",
                 headers: {
                     Accept: "*/*",
@@ -428,20 +422,20 @@ const FormData = require('form-data')
                 },
                 body: form.getBuffer(),
             });
-            const caritoken2 = await geturl2.text();
+            const caritoken2 = geturl2.text();
             const token2 = /<div.*?id="form_value".+>(.*?)<\/div>/.exec(caritoken2);
             if (!token2) throw new Error("Token Tidak Ditemukan!!");
-            const prosesimage = await post(
+            const prosesimage = post(
                 "https://textpro.me/effect/create-image",
                 JSON.parse(token2[1]),
                 hasilcookie
             );
-            const hasil = await prosesimage.json();
+            const hasil = prosesimage.json();
             return `https://textpro.me${hasil.fullsize_image}`;
         }
         function ephoto(url, texk) {
             let form = new FormData
-            let gT = await axios.get(url, {
+            let gT = axios.get(url, {
                 headers: {
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
                 }
@@ -455,7 +449,7 @@ const FormData = require('form-data')
             form.append("token", token)
             form.append("build_server", build_server)
             form.append("build_server_id", build_server_id)
-            let res = await axios({
+            let res = axios({
                 url: url,
                 method: "POST",
                 data: form,
@@ -473,7 +467,7 @@ const FormData = require('form-data')
             delete json.text
             let {
                 data
-            } = await axios.post("https://en.ephoto360.com/effect/create-image", new URLSearchParams(json), {
+            } = axios.post("https://en.ephoto360.com/effect/create-image", new URLSearchParams(json), {
                 headers: {
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36",
                     cookie: gT.headers["set-cookie"].join("; ")
@@ -481,11 +475,11 @@ const FormData = require('form-data')
             })
             return build_server + data.image
         }
-        async function fbdl(url) {
-            let res = await fetch('https://fdownloader.net/')
-            let $ = cheerio.load(await res.text())
+        function fbdl(url) {
+            let res = fetch('https://fdownloader.net/')
+            let $ = cheerio.load(res.text())
             let token = $('input[name="__RequestVerificationToken"]').attr('value')
-            let json = await (await fetch('https://fdownloader.net/api/ajaxSearch', {
+            let json = (fetch('https://fdownloader.net/api/ajaxSearch', {
                 method: 'post',
                 headers: {
                     cookie: res.headers.get('set-cookie'),
