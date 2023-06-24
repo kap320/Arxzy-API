@@ -1,7 +1,7 @@
 <div align="center">
 <img src="https://telegra.ph/file/6af28d3c13b33ecc2ec14.jpg" alt="ArxzyDev" width="170" />
 
-## HEXA-API
+## ARXZY-API
 
 </div>
 
