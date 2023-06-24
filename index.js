@@ -4,7 +4,7 @@
     Forget For Donate
 */
 
-const = { obfus, cerpen, hentaivid, pinterest, apkDl, stickersearch, capcut, mediafireDl, tiktokdl, xnxxdl, fbdl, xnxxsearch, quote, textpro, ephoto } = require('./function/arxzy')
+const { obfus, cerpen, hentaivid, pinterest, apkDl, stickersearch, capcut, mediafireDl, tiktokdl, xnxxdl, fbdl, xnxxsearch, quote, textpro, ephoto } = require('./function/arxzy')
 
 module.exports = {
 obfus,
