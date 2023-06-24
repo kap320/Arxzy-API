@@ -23,6 +23,7 @@
 ```
 const arxzy = require('arxzy-api')
 const code = `const arxzy = require('arxzy-api')`
+
 let example = arxzy.obfus(code)
 m.reply(`${example.result}`)
 ```
