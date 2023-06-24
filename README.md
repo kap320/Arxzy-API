@@ -16,7 +16,7 @@
 </p>
 
 ## ``` Install By NPM ```
-> npm install arxzy-api
+> npm install https://github.com/AdrianTzy/Arxzy-API
 
 
 ## ```How to use it```
