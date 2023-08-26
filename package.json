@@ -1,7 +1,7 @@
 {
   "name": "arxzy-api",
   "version": "0.1.0",
-  "description": "All Scapers By ArxzyDev",
+  "description": "All Scapers By shanachan01",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
