@@ -6,7 +6,7 @@
 </div>
 
 <p align="center">
-<a href="##"><img title="arxzy-api" src="https://img.shields.io/static/v1?label=package&message=shanachan-api&color=blue"></a>
+<a href="##"><img title="shanachan-api" src="https://img.shields.io/static/v1?label=package&message=shanachan-api&color=blue"></a>
 </p>
 <p align="center">
   <a href="https://github.com/kap320"><img title="Author" src="https://img.shields.io/badge/Author-ArxzyDev-red.svg?style=for-the-badge&logo=github" /></a>
