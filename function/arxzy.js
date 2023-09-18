@@ -20,7 +20,7 @@ const FormData = require('form-data')
                     });
                     const result = {
                         status: 200,
-                        author: `ArxzyDev`,
+                        author: `shanachan`,
                         result: obfuscationResult.getObfuscatedCode()
                     }
                     resolve(result)
